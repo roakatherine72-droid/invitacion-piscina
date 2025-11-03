@@ -1,11 +1,12 @@
-# Lista de Confirmación - Cumpleaños 50
+# Lista de Confirmación - Cumpleaños 40
 
-Una página web elegante para gestionar las confirmaciones de asistencia a una fiesta de cumpleaños número 50.
+Una página web elegante para gestionar las confirmaciones de asistencia a una fiesta de cumpleaños número 40.
 
 ## Características
 
 - Diseño floral acuarela en tonos rosa y dorado
 - Formulario de confirmación para invitados
+- Límite de 3 acompañantes máximo
 - Lista privada para la cumpleañera (protegida con contraseña)
 - Notificaciones en tiempo real cuando alguien confirma
 - Mensajes de agradecimiento personalizados
@@ -19,6 +20,14 @@ Una página web elegante para gestionar las confirmaciones de asistencia a una f
 
 ## Contraseña de administrador
 
-La contraseña para acceder a la lista de confirmados es: `cumple50`
+La contraseña para acceder a la lista de confirmados es: `cumple40`
+
+## Cambios realizados
+
+- Cambiado de 50 a 40 años
+- Eliminada la ubicación específica
+- Eliminado el dress code
+- Límite de 3 acompañantes con mensaje de contacto directo para más
+- Mensaje más genérico en los detalles del evento
 
 ## Estructura del proyecto
