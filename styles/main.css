@@ -1,0 +1,324 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+    background-color: #fef7f9;
+    color: #5a3d2c;
+    line-height: 1.6;
+    background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><path fill="%23f8e0e6" opacity="0.3" d="M30,30 Q50,10 70,30 T90,50 T70,70 T50,90 T30,70 T10,50 T30,30 Z"/></svg>');
+    background-size: 200px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+header {
+    text-align: center;
+    margin-bottom: 30px;
+    padding: 30px 20px;
+    background: linear-gradient(135deg, #f8e0e6 0%, #f9c6d5 100%);
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    position: relative;
+    overflow: hidden;
+    border: 2px solid #e8b4c2;
+}
+
+header::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    height: 5px;
+    background: linear-gradient(90deg, #d4af37, #ffd700, #d4af37);
+}
+
+.floral-decoration {
+    position: absolute;
+    width: 80px;
+    height: 80px;
+    opacity: 0.7;
+}
+
+.floral-1 {
+    top: 10px;
+    left: 10px;
+    transform: rotate(-15deg);
+}
+
+.floral-2 {
+    bottom: 10px;
+    right: 10px;
+    transform: rotate(15deg);
+}
+
+h1 {
+    font-size: 2.8rem;
+    margin-bottom: 10px;
+    color: #8b4513;
+    text-shadow: 1px 1px 2px rgba(0,0,0,0.1);
+}
+
+.age {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #d4af37;
+    margin-bottom: 15px;
+    display: inline-block;
+    padding: 5px 15px;
+    border: 2px dashed #d4af37;
+    border-radius: 30px;
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    margin-bottom: 20px;
+    color: #8b4513;
+    font-style: italic;
+}
+
+.date {
+    font-size: 2.2rem;
+    font-weight: bold;
+    color: #8b4513;
+    margin: 15px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.date i {
+    color: #d4af37;
+}
+
+.details {
+    background-color: rgba(255, 255, 255, 0.8);
+    padding: 20px;
+    border-radius: 10px;
+    margin: 20px 0;
+    border-left: 4px solid #d4af37;
+}
+
+.details p {
+    margin: 10px 0;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.details i {
+    color: #d4af37;
+    width: 20px;
+}
+
+.form-section {
+    background-color: white;
+    padding: 30px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    border: 1px solid #e8b4c2;
+}
+
+h2 {
+    color: #8b4513;
+    margin-bottom: 20px;
+    text-align: center;
+    font-size: 1.8rem;
+    position: relative;
+    padding-bottom: 10px;
+}
+
+h2::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(90deg, #d4af37, #e8b4c2, #d4af37);
+}
+
+.form-group {
+    margin-bottom: 20px;
+}
+
+label {
+    display: block;
+    margin-bottom: 8px;
+    font-weight: 600;
+    color: #8b4513;
+}
+
+input, select, textarea {
+    width: 100%;
+    padding: 12px 15px;
+    border: 1px solid #e8b4c2;
+    border-radius: 8px;
+    font-size: 1rem;
+    transition: all 0.3s;
+}
+
+input:focus, select:focus, textarea:focus {
+    outline: none;
+    border-color: #d4af37;
+    box-shadow: 0 0 0 2px rgba(212, 175, 55, 0.2);
+}
+
+button {
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #8b4513;
+    border: none;
+    padding: 14px 25px;
+    border-radius: 30px;
+    cursor: pointer;
+    font-size: 1.1rem;
+    font-weight: 600;
+    transition: all 0.3s;
+    display: block;
+    margin: 0 auto;
+    box-shadow: 0 4px 10px rgba(212, 175, 55, 0.3);
+}
+
+button:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 6px 15px rgba(212, 175, 55, 0.4);
+}
+
+.confirmation-message {
+    background-color: #f0f8f0;
+    color: #2d5a2d;
+    padding: 20px;
+    border-radius: 10px;
+    margin-top: 20px;
+    display: none;
+    text-align: center;
+    border-left: 4px solid #4caf50;
+}
+
+.confirmation-message i {
+    font-size: 2rem;
+    margin-bottom: 10px;
+    color: #4caf50;
+}
+
+.admin-section {
+    background-color: white;
+    padding: 25px;
+    border-radius: 15px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    margin-bottom: 25px;
+    border: 1px solid #e8b4c2;
+}
+
+.admin-login {
+    background-color: #f8f0f5;
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 20px;
+}
+
+.guest-list {
+    margin-top: 20px;
+}
+
+.guest-item {
+    padding: 15px;
+    border-bottom: 1px solid #f0e0e6;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: all 0.3s;
+}
+
+.guest-item:hover {
+    background-color: #fdf5f8;
+}
+
+.guest-item:last-child {
+    border-bottom: none;
+}
+
+.guest-info {
+    flex-grow: 1;
+}
+
+.guest-name {
+    font-weight: 600;
+    font-size: 1.1rem;
+    color: #8b4513;
+}
+
+.guest-comment {
+    font-style: italic;
+    margin-top: 5px;
+    color: #7a6a5a;
+}
+
+.guest-status {
+    padding: 6px 12px;
+    border-radius: 20px;
+    font-size: 0.8rem;
+    font-weight: 600;
+}
+
+.status-confirmed {
+    background-color: #e8f5e9;
+    color: #2d5a2d;
+}
+
+.status-declined {
+    background-color: #ffebee;
+    color: #c62828;
+}
+
+.notification {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    background: linear-gradient(135deg, #d4af37 0%, #ffd700 100%);
+    color: #8b4513;
+    padding: 15px 20px;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    display: none;
+    z-index: 1000;
+    max-width: 300px;
+}
+
+footer {
+    text-align: center;
+    margin-top: 40px;
+    padding: 20px;
+    color: #8b4513;
+    font-size: 0.9rem;
+    border-top: 1px dashed #e8b4c2;
+}
+
+@media (max-width: 600px) {
+    .container {
+        padding: 10px;
+    }
+    
+    h1 {
+        font-size: 2.2rem;
+    }
+    
+    .date {
+        font-size: 1.8rem;
+    }
+    
+    .form-section, .admin-section {
+        padding: 20px 15px;
+    }
+}
