@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Confirmación - Cumpleaños 50</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="styles/main.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+            <div class="floral-decoration floral-1">
+                <i class="fas fa-leaf" style="font-size: 80px; color: #e8b4c2;"></i>
+            </div>
+            <div class="floral-decoration floral-2">
+                <i class="fas fa-feather-alt" style="font-size: 80px; color: #e8b4c2;"></i>
+            </div>
+            
+            <div class="age">50 AÑOS</div>
+            <h1>¡ACOMPÁÑAME A CELEBRAR!</h1>
+            
+            <div class="date">
+                <i class="far fa-calendar-alt"></i>
+                15 NOVIEMBRE
+            </div>
+            
+            <div class="details">
+                <p><i class="far fa-clock"></i> 2:00 PM</p>
+                <p><i class="fas fa-map-marker-alt"></i> Ubicación: Salón de Eventos "Las Flores"</p>
+                <p><i class="fas fa-vest"></i> Vestimenta: Elegante casual</p>
+            </div>
+        </header>
+        
+        <section class="form-section">
+            <h2>Confirma Tu Asistencia</h2>
+            <form id="confirmation-form">
+                <div class="form-group">
+                    <label for="name">Tu Nombre Completo:</label>
+                    <input type="text" id="name" name="name" required placeholder="Ej: María González">
+                </div>
+                
+                <div class="form-group">
+                    <label for="email">Tu Correo Electrónico:</label>
+                    <input type="email" id="email" name="email" placeholder="Ej: maria@ejemplo.com">
+                </div>
+                
+                <div class="form-group">
+                    <label for="attendance">¿Podrás asistir?</label>
+                    <select id="attendance" name="attendance" required>
+                        <option value="" disabled selected>Selecciona una opción</option>
+                        <option value="confirmed">¡Sí, estaré allí!</option>
+                        <option value="declined">Lo siento, no podré asistir</option>
+                    </select>
+                </div>
+                
+                <div class="form-group">
+                    <label for="guests">Número de acompañantes:</label>
+                    <input type="number" id="guests" name="guests" min="0" max="5" value="0">
+                </div>
+                
+                <div class="form-group">
+                    <label for="message">Mensaje opcional:</label>
+                    <textarea id="message" name="message" rows="3" placeholder="Déjame un mensaje si lo deseas..."></textarea>
+                </div>
+                
+                <button type="submit">Enviar Confirmación</button>
+            </form>
+            
+            <div id="confirmation-message" class="confirmation-message">
+                <i class="far fa-check-circle"></i>
+                <h3>¡Gracias por confirmar!</h3>
+                <p>Tu respuesta ha sido registrada. Estoy emocionado de celebrar contigo este día especial.</p>
+            </div>
+        </section>
+        
+        <section class="admin-section">
+            <h2>Lista de Confirmados (Solo para la cumpleañera)</h2>
+            <div class="admin-login">
+                <div class="form-group">
+                    <label for="admin-password">Contraseña:</label>
+                    <input type="password" id="admin-password" placeholder="Introduce la contraseña">
+                </div>
+                <button id="admin-login-btn">Acceder a la lista</button>
+            </div>
+            
+            <div id="guest-list" class="guest-list" style="display: none;">
+                <!-- Aquí se cargará la lista de invitados -->
+            </div>
+        </section>
+        
+        <footer>
+            <p>Con amor, para mis amigos y familiares más especiales</p>
+            <p>© 2023 Celebración de mis 50 años</p>
+        </footer>
+    </div>
+
+    <div id="notification" class="notification">
+        <strong>Nueva confirmación recibida</strong>
+        <div id="notification-details"></div>
+    </div>
+
+    <script src="js/script.js"></script>
+</body>
+</html>
