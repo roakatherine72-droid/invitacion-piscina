@@ -6,7 +6,7 @@ let guests = [
 ];
 
 // Contraseña para acceder a la lista
-const ADMIN_PASSWORD = "cumple50";
+const ADMIN_PASSWORD = "cumple40";
 
 // Referencias a elementos del DOM
 const confirmationForm = document.getElementById('confirmation-form');
@@ -18,8 +18,12 @@ const notification = document.getElementById('notification');
 const notificationDetails = document.getElementById('notification-details');
 
 // Mostrar notificación
-function showNotification(guestName, status) {
-    notificationDetails.textContent = `${guestName} - ${status === 'confirmed' ? 'Asistirá' : 'No asistirá'}`;
+function showNotification(guestName, status, guestsCount) {
+    let message = `${guestName} - ${status === 'confirmed' ? 'Asistirá' : 'No asistirá'}`;
+    if (status === 'confirmed' && guestsCount > 0) {
+        message += ` (+${guestsCount} acompañante${guestsCount > 1 ? 's' : ''})`;
+    }
+    notificationDetails.textContent = message;
     notification.style.display = 'block';
     
     setTimeout(() => {
@@ -37,6 +41,12 @@ confirmationForm.addEventListener('submit', function(e) {
     const guestsCount = document.getElementById('guests').value;
     const message = document.getElementById('message').value;
     
+    // Validar que no se exceda el límite de acompañantes
+    if (attendance === 'confirmed' && parseInt(guestsCount) > 3) {
+        alert('Por favor, si necesitas traer más de 3 acompañantes, contáctame directamente.');
+        return;
+    }
+    
     // Añadir el nuevo invitado a la lista
     guests.push({
         name: name,
@@ -47,7 +57,7 @@ confirmationForm.addEventListener('submit', function(e) {
     });
     
     // Mostrar notificación para la cumpleañera
-    showNotification(name, attendance);
+    showNotification(name, attendance, parseInt(guestsCount));
     
     // Mostrar mensaje de confirmación al invitado
     confirmationMessage.style.display = 'block';
@@ -106,11 +116,16 @@ function renderGuestList() {
         guestEmail.style.fontSize = '0.9rem';
         guestEmail.style.color = '#7a6a5a';
         
-        const guestGuests = document.createElement('div');
-        guestGuests.className = 'guest-guests';
-        guestGuests.textContent = `Acompañantes: ${guest.guests}`;
-        guestGuests.style.fontSize = '0.9rem';
-        guestGuests.style.marginTop = '5px';
+        const guestDetails = document.createElement('div');
+        guestDetails.className = 'guest-details';
+        guestDetails.style.fontSize = '0.9rem';
+        guestDetails.style.marginTop = '5px';
+        
+        if (guest.status === 'confirmed' && guest.guests > 0) {
+            guestDetails.textContent = `Acompañantes: ${guest.guests}`;
+        } else if (guest.status === 'confirmed') {
+            guestDetails.textContent = 'Asiste solo/a';
+        }
         
         const guestComment = document.createElement('div');
         guestComment.className = 'guest-comment';
@@ -125,7 +140,9 @@ function renderGuestList() {
         
         guestInfo.appendChild(guestName);
         guestInfo.appendChild(guestEmail);
-        guestInfo.appendChild(guestGuests);
+        if (guest.status === 'confirmed') {
+            guestInfo.appendChild(guestDetails);
+        }
         if (guest.message) {
             guestInfo.appendChild(guestComment);
         }
